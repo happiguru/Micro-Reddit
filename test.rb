@@ -138,3 +138,31 @@ class CreateCourses < ActiveRecord::Migration[5.2]
   end
 end
 
+
+//
+
+user
+
+id:
+username:
+email:
+password
+has_many :pin
+has_many:comment
+
+Comment
+
+id:
+comment_body: 
+belongs_to: pin
+belongs_to: user
+
+Pin
+
+id
+pin_body
+pin_url
+has_many: comment
+belongs_to: user
+
+
