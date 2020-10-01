@@ -173,6 +173,8 @@ class CreateUser < ActiveRecord::Migration[5.2]
       t.string :username
       t.string :email
       t.string :password
+      t.references :pin, foreign_key: true
+      t.references :comment, foreign_key: true
       t.timestamps
     end
   end
@@ -194,6 +196,7 @@ class CreatePin < ActiveRecord::Migration[5.2]
     create_table :pin do |t|
       t.string :pin_body 
       t.string :pin_url
+      t.references :comment, foreign_key: true
       t.timestamps
     end
   end
