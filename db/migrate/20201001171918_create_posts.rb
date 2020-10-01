@@ -4,7 +4,6 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :post_title
       t.text :post_body
       t.references :users, foreign_key: true 
-      t.references :comments, foreign_key: true
 
       t.timestamps
     end
