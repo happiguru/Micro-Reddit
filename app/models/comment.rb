@@ -1,6 +1,5 @@
 class Comment < ApplicationRecord
-  validates :comment_body, presence: true, length: ( 10..100 )
+  validates :description
 
   belongs_to :post
-  belongs_to :user
 end
