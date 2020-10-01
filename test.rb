@@ -305,31 +305,3 @@ class CreateAuthors < ActiveRecord::Migration[5.2]
     end
   end
 end
-
-
-
-user
-
-id:
-username:string
-has_many: posts
-has_many: comments
-
-posts
-id:
-post_title:string
-post_body: text
-belongs_to: user
-has_many: comments
-references user(fk=user_id)
-references comment(fk-comment_id)
-
-comment
-
-id:
-comment_body: text
-belongs_to: posts
-
-
-
-
