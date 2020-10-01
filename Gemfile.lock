@@ -33,7 +33,6 @@ GEM
       activemodel (= 5.2.4.4)
       activesupport (= 5.2.4.4)
       arel (>= 9.0)
-    activerecord-reset-pk-sequence (0.2.1)
     activestorage (5.2.4.4)
       actionpack (= 5.2.4.4)
       activerecord (= 5.2.4.4)
@@ -199,6 +198,7 @@ GEM
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.7.0)
+    wdm (0.1.1)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -215,7 +215,6 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  activerecord-reset-pk-sequence
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
@@ -234,6 +233,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
+  wdm (~> 0.1.0)
   web-console (>= 3.3.0)
 
 BUNDLED WITH
