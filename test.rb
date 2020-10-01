@@ -14,7 +14,7 @@ class Author < ApplicationRecord
   has_many :post
 end
 # online_learning_platform Model
-class lessons < ApplicationRecord
+class Lessons < ApplicationRecord
   validates :title, presence: true, length: { in: 4..12 }
   validates :body, presence: true, length: { in: 20..100 }
 
@@ -62,6 +62,67 @@ class Country < ApplicationRecord
   has_many :state
   has_many :city
 end
+
+# virtual_pinboard Model
+class User < ApplicationRecord
+  validates :username, presence: true, length: { in: 4..12 }
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, length: { in: 4..16 }
+
+  has_many :pin
+  has_many :comment
+end
+
+class Comment < ApplicationRecord
+  validates :comment_body, presence: true
+
+  belongs_to :pin 
+  belongs_to :user
+end
+
+class Pin < ApplicationRecord
+  validates :pin_body, presence: true
+  validates :pin_url, presence: true
+
+  belongs_to :user 
+  has_many :comment
+end
+
+
+# This is the migration code for the models.
+# micro_reddit Migration
+class CreateAuthors < ActiveRecord::Migration[5.2]
+  def change
+    create_table :authors do |t|
+      t.string :username
+      t.string :email
+      t.string :password
+      t.timestamps
+    end
+  end
+end
+# online_learning_platform Migration
+class CreateLessons < ActiveRecord::Migration[5.2]
+  def change
+    create_table :lessons do |t|
+      t.string :title
+      t.string :body
+      t.timestamps
+    end
+  end
+end
+
+class CreateCourses < ActiveRecord::Migration[5.2]
+  def change
+    create_table :courses do |t|
+      t.string :title
+      t.string :description
+      t.references :lessons, foreign_key: true
+      t.timestamps
+    end
+  end
+end
+
 # profile Migration 
 class CreateUserProfile < ActiveRecord::Migration[5.2]
   def change
@@ -104,11 +165,11 @@ class CreateCountry < ActiveRecord::Migration[5.2]
     end
   end
 end
-# This is the migration code for the models.
-# micro_reddit Migration
-class CreateAuthors < ActiveRecord::Migration[5.2]
+
+# virtual_pinboard Migration 
+class CreateUser < ActiveRecord::Migration[5.2]
   def change
-    create_table :authors do |t|
+    create_table :user do |t|
       t.string :username
       t.string :email
       t.string :password
@@ -116,53 +177,24 @@ class CreateAuthors < ActiveRecord::Migration[5.2]
     end
   end
 end
-# online_learning_platform Migration
-class CreateLessons < ActiveRecord::Migration[5.2]
-  def change
-    create_table :lessons do |t|
-      t.string :title
-      t.string :body
-      t.timestamps
-    end
-  end
-end
 
-class CreateCourses < ActiveRecord::Migration[5.2]
+
+class CreateComment < ActiveRecord::Migration[5.2]
   def change
-    create_table :courses do |t|
-      t.string :title
-      t.string :description
-      t.references :lessons, foreign_key: true
+    create_table :comment do |t|
+      t.string :comment_body
       t.timestamps
     end
   end
 end
 
 
-//
-
-user
-
-id:
-username:
-email:
-password
-has_many :pin
-has_many:comment
-
-Comment
-
-id:
-comment_body: 
-belongs_to: pin
-belongs_to: user
-
-Pin
-
-id
-pin_body
-pin_url
-has_many: comment
-belongs_to: user
-
-
+class CreatePin < ActiveRecord::Migration[5.2]
+  def change
+    create_table :pin do |t|
+      t.string :pin_body 
+      t.string :pin_url
+      t.timestamps
+    end
+  end
+end
