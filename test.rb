@@ -201,3 +201,34 @@ class CreatePin < ActiveRecord::Migration[5.2]
     end
   end
 end
+
+
+user
+
+username:
+email:
+password:
+link_id: foreign_key
+comment_id: foreign_key
+tcomment_id: foreign_key
+has_many: comment
+
+Link
+
+link_id:
+description:
+link_url:
+
+Comment
+
+comment_id:
+comment_body:
+link_id: foreign_key
+
+
+Threaded_comment
+
+tcomment_id:
+tcomment_body:
+comment_id: foreign_key
+
