@@ -2,7 +2,8 @@
 
 #  🧐 Micro-Reddit
 
-This is the first collaborative project from the Ruby on Rails module from the Microverse program it consists on thinking in how to implement models and migrations for a database (no frontend needed), so we don't implement the controllers only the models from the MVC pattern.
+This is the second collaborative project from the Ruby on Rails module from the Microverse program it consists on thinking in how to implement models and migrations for a database (no frontend needed), so we don't implement the controllers only the models from the MVC pattern.
+To build the models we used migrations, associations and validation.
 
 ## 🔧 Built With
 - Ruby. v2.6.6
@@ -23,7 +24,7 @@ To get a local copy up and running follow these simple example steps.
 - Clone it using git.
 
 ## Run the application
-First cd where your project is located, then run ```bundle install``` to install all the gems on the Gemfile, then run ```rails server``` and finally go to ```https://localhost:300```.
+First cd where your project is located, then run ```bundle install``` to install all the gems on the Gemfile, then run ```rails server``` and finally go to ```https://localhost:3000```.
 
 ## ✒️ Authors
 👤 **Cecilia Benitez Casaccia**
